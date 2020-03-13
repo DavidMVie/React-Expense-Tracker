@@ -1,0 +1,35 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import configureStore from './store/configureStore';
+import 'normalize.css/normalize.css';
+import './styles/styles.scss'
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+
+import { startSetExpenses } from './actions/expenses'
+
+import AppRouter from './routers/AppRouter';
+
+const store = configureStore()
+
+const app = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+)
+
+ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+
+store.dispatch(startSetExpenses())
+.then(() => {
+  ReactDOM.render(app, document.getElementById('root'));
+
+})
+.catch((e) => {
+  console.log(e.message);
+})
+
+
+
