@@ -11,7 +11,6 @@ export const addExpense = (expense) => {
 export const startAddExpense = (expense) => {
 
   return  (dispatch, getState) => {
-    console.log(getState())
     const uid = getState().auth.uid
   database.ref(`users/${uid}/expenses`)
     .push(expense)

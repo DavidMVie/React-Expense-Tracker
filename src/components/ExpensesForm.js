@@ -49,9 +49,7 @@ class ExpensesForm extends React.Component {
   }
 
   onDateChange(createdAt) {
-    console.log('createdAt ', createdAt)
     this.setState(() => ({ createdAt }));
-    console.log(this.state)
   }
 
   onSubmit(e) {
