@@ -11,8 +11,6 @@ if(process.env.NODE_ENV === 'test') {
 }
 
 module.exports = (env) => {
-  console.log(process.env
-    )
   const isProduction =  env === 'production'
 
   return {
@@ -29,7 +27,7 @@ module.exports = (env) => {
         'process.env.FIREBASE_MEASUREMENT_ID': JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID)
       })
     ],
-    entry: './src/app.js',
+    entry: ['babel-polyfill', './src/app.js'],
     output: {
       path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'

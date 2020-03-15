@@ -1,5 +1,4 @@
 
-
 const expensesReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_EXPENSE': {

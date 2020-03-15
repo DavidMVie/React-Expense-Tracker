@@ -9,15 +9,21 @@ const AddExpensesPage = (props) => {
 
   const onSubmit = (expense) => {
     props.startAddExpense(expense)
-    props.history.push('/')
+    props.history.push('/dashboard')
   }
 
   return (
     <div>
-      <h1>Add Expense</h1>
-      <ExpensesForm 
-        onSubmit={onSubmit}
-      />
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title"> Save Expense</h1>
+        </div>
+      </div>
+      <div className="content-container">
+        <ExpensesForm 
+          onSubmit={onSubmit}
+        />
+      </div>
     </div>
   )
 

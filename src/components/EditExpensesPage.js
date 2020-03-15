@@ -17,12 +17,21 @@ const EditExpensesPage = (props) => {
   
   return (
     <div>
-      <h1> Edit Expense </h1>
-      <ExpensesForm 
-        expense={props.expense} 
-        onSubmit={onSubmit}
-      />
-      <button onClick={onRemove}>Delete Expense</button>
+      <div className="page-header">
+        <div className="content-container">
+          <h1> Edit Expense </h1>
+        </div>        
+      </div>
+      <div className="content-container">
+        <ExpensesForm 
+          expense={props.expense} 
+          onSubmit={onSubmit}
+        />
+        <div>
+          <button className="button button--secondary" onClick={onRemove}>Remove Expense</button>
+        </div>
+        
+      </div>
     </div>
   )
 }

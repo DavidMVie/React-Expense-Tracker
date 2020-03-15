@@ -68,45 +68,45 @@ class ExpensesForm extends React.Component {
       }
       this.props.onSubmit(expense)
     }
-    
-
   }
-
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input 
-            placeholder="description"
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-          />
-          <input 
-            placeholder="amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <SingleDatePicker 
-            date={this.state.createdAt} // momentPropTypes.momentObj or null
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>} 
+        <input 
+          className="text-input"
+          placeholder="description"
+          value={this.state.description}
+          onChange={this.onDescriptionChange}
+        />
+        <input 
+          className="text-input"
+          placeholder="amount"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <SingleDatePicker 
+          date={this.state.createdAt} // momentPropTypes.momentObj or null
 
-            onDateChange={this.onDateChange} // PropTypes.func.isRequired
-            focused={this.state.focused} // PropTypes.bool
-            onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-            id="your_unique_id" // PropTypes.string.isRequired,
-            numberOfMonths={1}
-            isOutsideRange= {() => false}
-          />
-          <textarea
-            placeholder="Add a note (optional)"
-            value={this.state.note}
-            onChange={this.onNoteChange}
-          >          
-          </textarea>
-          <button>Add Expense</button>
-        </form>
-      </div>
+          onDateChange={this.onDateChange} // PropTypes.func.isRequired
+          focused={this.state.focused} // PropTypes.bool
+          onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+          id="your_unique_id" // PropTypes.string.isRequired,
+          numberOfMonths={1}
+          isOutsideRange= {() => false}
+        />
+        <textarea 
+          className="textarea"
+          placeholder="Add a note (optional)"
+          value={this.state.note}
+          onChange={this.onNoteChange}
+        >          
+        </textarea>
+        <div>
+          <button className="button">Add Expense</button>
+        </div>
+      </form>
     )
   }
  
